@@ -1,0 +1,13 @@
+default: &default
+  petstore_client: {
+    api_key: 'secret-key'
+  }
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

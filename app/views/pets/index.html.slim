@@ -1,0 +1,28 @@
+.status_selector
+  = label_tag :pat_status, t('pets.index.status_filter')
+  = select_tag :pet_status, options_for_select(PetstoreClient::Pet::STATUS_VALUES), multiple: true, include_blank: true,
+      class: 'js-status_selector'
+
+#pets
+
+javascript:
+  $(function() {
+    window.router = new Petstore.Routers.PetsRouter({pets: #{@pets.to_json.html_safe}});
+    Backbone.history.start();
+
+    $('.js-status_selector').on('change', function() {
+      var
+        statuses = $(this).val(),
+        params = [];
+
+      if (statuses.length === 1 && !statuses[0]) statuses = #{raw PetstoreClient::Pet::STATUS_VALUES.to_json};
+
+      statuses.forEach(function(status) {
+        if (status === '') return;
+
+        params.push('status=' + status);
+      });
+
+      window.location.href = '#{root_url}' + '?' + params.join('&');
+    })
+  });

@@ -1,0 +1,25 @@
+.card-wrapper
+  .card
+    | {{#each photoUrls}}
+    img src="{{this}}" alt="Фотография {{@index}}" class="card-img"
+    | {{/each}}
+
+    .card-info
+      h1.card-title
+        | {{name}}
+
+      | {{#if category}}
+      .card-category Категория:
+        {{category.name}}
+      |  {{/if}}
+
+      .card-field Статус:
+        {{status}}
+
+      | {{#if tags}}
+      .card-field Теги:
+        {{#each tags}}{{this.name}}{{/each}}
+      |  {{/if}}
+
+      .card-nav
+        a href="#/index" Назад

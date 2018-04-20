@@ -1,0 +1,10 @@
+td
+  | {{#if photoUrls}}
+  img src="{{photoUrls.[0]}}" alt="Фотография {{name}}"
+  | {{/if}}
+td
+  | {{name}}
+td
+  | {{status}}
+td
+  a href="#/{{id}}" Просмотр

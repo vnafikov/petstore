@@ -1,0 +1,7 @@
+.content
+  table id="pets-table" class="responsive-card-table unstriped"
+    tr
+      th Фотография
+      th Имя
+      th Статус
+      th

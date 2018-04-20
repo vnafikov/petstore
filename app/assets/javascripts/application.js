@@ -11,6 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
-//= require turbolinks
+//= require jquery
+//= require foundation
+//= require handlebars
+//= require underscore
+//= require backbone
+//= require backbone_rails_sync
+//= require backbone_datalink
+//= require backbone/petstore
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
